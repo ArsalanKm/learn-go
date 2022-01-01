@@ -20,3 +20,9 @@ func (ms *MemoryStudent) Save(student model.Student) error{
 	return nil
 }
 
+func (ms *MemoryStudent) Load(Id string) (model.Student, error){
+	if _,ok:=ms.students[Id];ok{
+		return ms.students[Id],nil
+	}
+	return model.Student{},ErrStudentNotFund
+}
