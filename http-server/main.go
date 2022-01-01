@@ -7,8 +7,18 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
+type Response struct{
+	Name string
+	Family string
+	Verb int
+}
+
 func helloHandler(c echo.Context) error{
-	return c.JSON(http.StatusOK,"Hello World From Glolang")
+	return c.JSON(http.StatusOK,Response{
+		Name: "arsalan",
+		Family: "Karimzad",
+		Verb: 10,
+	})
 }
 
 func main(){
