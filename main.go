@@ -1,8 +1,14 @@
 package main
 
-import "fmt" 
+import "fmt"
+
 
 func main ()  {
-	fmt.Println("hello world")
+	var a []int;
+	a=make([]int, 10)
+	for index, value :=range a{
+		fmt.Printf("[%d]:%d\n",index,value)
+	}
 	
+
 }
