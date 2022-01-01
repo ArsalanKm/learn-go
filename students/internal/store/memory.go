@@ -12,6 +12,7 @@ func NewMomoryStudent() *MemoryStudent{
 		students: make(map[string]model.Student),
 	}
 }
+
 func (ms *MemoryStudent) Save(student model.Student) error{
 	if _ , ok := ms.students[student.ID]; ok {
 		return ErrStudentDuplicate
@@ -20,9 +21,17 @@ func (ms *MemoryStudent) Save(student model.Student) error{
 	return nil
 }
 
-func (ms *MemoryStudent) Load(Id string) (model.Student, error){
+func (ms *MemoryStudent) LoadById(Id string) (model.Student, error){
 	if _,ok:=ms.students[Id];ok{
 		return ms.students[Id],nil
 	}
 	return model.Student{},ErrStudentNotFund
+}
+
+func (ms *MemoryStudent) Load()([]model.Student,error){
+ss:=make([]model.Student,0,len((ms.students)))
+for _, s := range ms.students {
+	ss = append(ss, s)
+}
+return ss,nil
 }

@@ -15,5 +15,6 @@ var(
 type Student interface{
 	Save(model.Student)error
 	LoadById(id string) (model.Student,error)
+	Load()([]model.Student,error)
 
 }
