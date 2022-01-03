@@ -4,6 +4,7 @@ import (
 	"log"
 	"net/http"
 
+	"github.com/ArsalanKm/students/internal/http/request"
 	"github.com/ArsalanKm/students/internal/store"
 	"github.com/gofiber/fiber/v2"
 )
@@ -22,7 +23,15 @@ func (s Student) List(c *fiber.Ctx) error {
 }
 
 func (S Student) Create(c *fiber.Ctx) error {
-	c.BodyParser()
+	req := new(request.Student)
+	if err := c.BodyParser(req); err != nil {
+		log.Printf("can not load student data %s", err)
+		return fiber.ErrBadRequest
+	}
+	if err := req.Validate(); err != nil {
+		log.Printf("can not validate %s", err)
+		return fiber.ErrBadRequest
+	}
 	return c.Status(http.StatusCreated).JSON("true")
 }
 
