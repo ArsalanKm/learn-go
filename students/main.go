@@ -6,13 +6,12 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-
-func main(){
-	hs :=handler.Student{
-		Store: store.NewMomoryStudent(),
+func main() {
+	hs := handler.Student{
+		Store: store.NewMemoryStudent(),
 	}
 
 	app := fiber.New()
-	g:=app.Group("/student")
+	g := app.Group("/")
 	hs.Register(g)
 }

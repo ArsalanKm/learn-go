@@ -7,7 +7,7 @@ type MemoryStudent struct {
 	students map[string]model.Student
 }
 
-func NewMomoryStudent() *MemoryStudent{
+func NewMemoryStudent() *MemoryStudent{
 	return &MemoryStudent{
 		students: make(map[string]model.Student),
 	}

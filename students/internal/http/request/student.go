@@ -6,6 +6,8 @@ import (
 	validation "github.com/go-ozzo/ozzo-validation/v4"
 )
 
+const SBUStudentIdLen = 8
+
 type Student struct {
 	ID        string
 	FirstName string
@@ -14,7 +16,7 @@ type Student struct {
 
 func (s Student) Validate() error {
 	if err := validation.ValidateStruct(&s,
-		validation.Field(&s.ID, validation.Required, validation.Length(8, 8)),
+		validation.Field(&s.ID, validation.Required, validation.Length(SBUStudentIdLen, SBUStudentIdLen)),
 		validation.Field(&s.FirstName, validation.Required),
 		validation.Field(&s.LastName, validation.Required),
 	); err != nil {
