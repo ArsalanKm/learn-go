@@ -10,7 +10,7 @@ import (
 )
 
 
-func new(cfg Config) (*mongo.Database,error){
+func New(cfg Config) (*mongo.Database,error){
 	opts:=options.Client()
 	opts.ApplyURI(cfg.URL)
 	
