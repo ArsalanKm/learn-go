@@ -14,10 +14,11 @@ type MongoDB struct {
 }
 
 const Collection = "students"
+const DatabaseName = "sbu"
 
 func NewMongoDBStore(db *mongo.Database) MongoDB {
 	return MongoDB{
-		db: db,
+		db: db.Client().Database(DatabaseName),
 	}
 }
 

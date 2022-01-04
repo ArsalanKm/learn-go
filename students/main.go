@@ -12,8 +12,8 @@ import (
 
 func main() {
 	db, err := db.New(db.Config{
+		Name:              store.DatabaseName,
 		URL:               "mongodb://127.0.0.1:27017",
-		Name:              "arsalan",
 		ConnectionTimeout: 10 * time.Second,
 	})
 	if err != nil {
