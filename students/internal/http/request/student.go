@@ -10,9 +10,9 @@ import (
 const SBUStudentIdLen = 8
 
 type Student struct {
-	ID        string
-	FirstName string
-	LastName  string
+	ID        string `json:"id"`
+	FirstName string `json:"first_name"`
+	LastName  string `json:"last_name"`
 }
 
 func (s Student) Validate() error {
