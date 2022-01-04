@@ -61,13 +61,13 @@ func (s Student) Get(c *fiber.Ctx) error {
 		log.Printf("cannot validate student By Id %s", err)
 		return fiber.ErrBadRequest
 	}
-	student ,err :=s.Store.LoadById(id)
-	if err!=nil{
-		if errors.Is(err,store.ErrStudentNotFund){
+	student, err := s.Store.LoadById(id)
+	if err != nil {
+		if errors.Is(err, store.ErrStudentNotFund) {
 
 			return fiber.ErrNotFound
 		}
-		log.Printf("cannot load student by Id %s",err)
+		log.Printf("cannot load student by Id %s", err)
 		return fiber.ErrInternalServerError
 
 	}
